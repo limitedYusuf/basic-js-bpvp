@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>DOM</title>
+   </head>
+
+   <body>
+      <p id="paragraf">Ini adalah sebuah paragraf.</p>
+
+      <ul>
+         <li class="item">Item 1</li>
+         <li class="item">Item 2</li>
+         <li class="item">Item 3</li>
+      </ul>
+
+      <ul id="daftar">
+         <li>Item 1</li>
+         <li>Item 2</li>
+      </ul>
+
+      <button id="tombol">Klik Saya</button>
+
+      <input type="text" id="inputText">
+
+      <script>
+         // Elemen HTML
+         var paragraf = document.getElementById("paragraf");
+         paragraf.innerHTML = "Paragraf ini telah diubah dengan JavaScript.";
+
+         var itemPertama = document.querySelector(".item");
+         var semuaItem = document.querySelectorAll(".item");
+
+         var daftar = document.getElementById("daftar");
+         var newItem = document.createElement("li");
+         newItem.textContent = "Item 3";
+         daftar.appendChild(newItem);
+
+         var itemKedua = document.getElementById("daftar").querySelector("li:nth-child(2)");
+         if (itemKedua) {
+            daftar.removeChild(itemKedua);
+         }
+
+         // Event Handling
+         var tombol = document.getElementById("tombol");
+         tombol.addEventListener("click", function () {
+            alert("Tombol telah diklik!");
+         });
+
+         // Event Mouse dan Keyboard
+         var inputText = document.getElementById("inputText");
+         inputText.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+               alert("Anda menekan tombol Enter!");
+            }
+         });
+      </script>
+   </body>
+
+</html>
